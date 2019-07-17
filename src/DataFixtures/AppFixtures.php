@@ -21,7 +21,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         //Utilisation de la librairie Faker qui permet de générer des données aléatoires
-        $faker = Factory::create('FR-fr');
+        $faker = Factory::create('fr-FR');
 
         //Création des utilisateurs
         $users = [];
@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
         for ($i=1; $i <= 30 ; $i++) { 
             $ad = new Ad();
             $title = $faker->sentence(6); //6 mots
-            $coverImage = $faker->imageUrl(1000, 350); //récuperer sur pixel.it
+            $coverImage = $faker->imageUrl(1000, 350); //récuperer sur pixel.it (largeur, hauteur)
             $introduction = $faker->paragraph(2); //2 phrases
             $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>'; //5 paragraphes qui sont séparés par </p> et <p>
             

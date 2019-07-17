@@ -16,12 +16,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdController extends AbstractController
 {
-    /**
-     * Liste des annonces
-     * 
-     * @Route("/ads", name="ads_index")
-     * 
-     */
+     /**
+      * Liste des annonces
+      * @Route("/ads", name="ads_index")
+      *
+      * @param AdRepository $repo
+      * @return void
+      */
     public function index(AdRepository $repo) //injection de dépendance $repo instance de AdRepository
     {
         $ads = $repo->findAll();

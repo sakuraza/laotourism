@@ -99,7 +99,9 @@ class Ad
      * @ORM\PreUpdate avant la mise à jour
      */
     public function initializeSlug(){
+        // si il n'y a pas de slug
         if (empty($this->slug)) {
+            //creation d'un slug
             $slugify = new Slugify();
             $this->slug = $slugify->slugify($this->title);
         }
