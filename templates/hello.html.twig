@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello {{ prenom }}</title>
-    <link rel="stylesheet" href="css/monfichier.css">
+{% extends 'base.html.twig' %}
 
-</head>
-<body>
+{% block title %}
+    Yo mon frere
+{% endblock %}
+{% block body %}
     <p>Vous êtes sur mon site web</p>
     <h1>Bonjour {{prenom}} vous avez {{age}} ans</h1>
-</body>
-</html>
+    <a href="{{ path('hello', {'prenom' : 'pierre', 'age' : 35}) }}">hello</a>
+{% endblock %}
