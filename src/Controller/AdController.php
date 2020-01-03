@@ -25,7 +25,7 @@ class AdController extends AbstractController
       */
     public function index(AdRepository $repo) //injection de dépendance $repo instance de AdRepository
     {
-        $ads = $repo->findAll();
+        $ads = $repo->findAll(); // Récupération de toutes les annonces grâce au repository $repo
         
         return $this->render('ad/index.html.twig', [
             'ads' => $ads,

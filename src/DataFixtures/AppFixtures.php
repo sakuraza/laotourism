@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
     }
     public function load(ObjectManager $manager)
     {
-        //Utilisation de la librairie Faker qui permet de générer des données aléatoires
+        //Utilisation de la librairie Faker qui permet de générer des données aléatoires https://github.com/fzaninotto/Faker
         $faker = Factory::create('fr-FR');
 
         //Création des utilisateurs
@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
         for ($i=1; $i <= 30 ; $i++) { 
             $ad = new Ad();
             $title = $faker->sentence(6); //6 mots
-            $coverImage = $faker->imageUrl(1000, 350); //récuperer sur pixel.it (largeur, hauteur)
+            $coverImage = $faker->imageUrl(1000, 350); //récuperer sur http://lorempixel.com (largeur, hauteur)
             $introduction = $faker->paragraph(2); //2 phrases
             $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>'; //5 paragraphes qui sont séparés par </p> et <p>
             
@@ -78,7 +78,7 @@ class AppFixtures extends Fixture
                 $manager->persist($image);
             }
             //Manager de doctrine : C'est lui qui fait les manipulations au sein de la bdd
-            $manager->persist($ad); //Prévient doctrine qu'onn veut Sauvegarde l'annonce
+            $manager->persist($ad); //Prévient doctrine qu'on veut Sauvegarde l'annonce
         }
         $manager->flush(); // envoi la requête finale
     }
