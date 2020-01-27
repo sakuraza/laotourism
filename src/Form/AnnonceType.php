@@ -32,7 +32,7 @@ class AnnonceType extends ApplicationType
         $builder
             ->add(
                 'title', 
-                TextType::class, 
+                TextType::class, //input de type texte
                 $this->getConfiguration("Titre", "Tapez un super titre pour votre annonce")
             )
             ->add(
@@ -70,10 +70,11 @@ class AnnonceType extends ApplicationType
             )
             ->add(
                 'images',
+                //Collection de formulaire
                 CollectionType::class,
                 [
                     'entry_type' => ImageType::class,
-                    'allow_add' => true, //Permet de préciser si l'on a le droit d'ajouter de nouveaux éléments
+                    'allow_add' => true, //Permet de préciser si l'on a le droit d'ajouter de nouveaux éléments (ajoute le data-prototype dans le html qui correspond à un sous formulaire vierge)
                     'allow_delete' => true
                 ],
                 $this->getConfiguration("r","e")

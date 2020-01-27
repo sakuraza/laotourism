@@ -37,7 +37,7 @@ class AdController extends AbstractController
       *
       * @Route("/ads/new", name="ads_create")
       *
-      * @param Request $request
+      * @param Request $request Retour de la requete http de type post du submit 
       * @param ObjectManager $manager
       * @return Response
       */
@@ -48,7 +48,7 @@ class AdController extends AbstractController
         //createForm permet de créer un formulaire externe
         $form = $this->createForm(AnnonceType::class, $ad);
 
-        //handleRequest() permet de parcourir la requête et d'extraire les informations du form
+        //handleRequest() Gère la requete http de type POST, permet de parcourir la requête et d'extraire les informations du form
         $form->handleRequest($request);
 
         //dump($ad);
@@ -62,11 +62,12 @@ class AdController extends AbstractController
                 $manager->persist($image);
             }
             
-            //Prévient doctrine qu'on veut sauver
+            //Le manager de doctrine manipule les enregistrements en bdd. Ici il prévient doctrine qu'on veut sauver
             $manager->persist($ad);
-            //Envoie la requête SQL
+            //Ici il envoie la requête SQL
             $manager->flush();
             
+            //Notification à l'utilisateur
             $this->addFlash(
                 "success",
                 "L'anonce <strong>{$ad->getTitle()}</strong> a bien été enregistré !"

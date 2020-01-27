@@ -16,7 +16,7 @@
     <div class="row">
         <!-- Mon annonce -->
         <div class="col-md-8 mb-3">
-            {{ ad.content | raw }}
+            {{ ad.content | raw }} {# filtre raw pour afficher le texte sans les balises html #}
             <!-- Carrousel -->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
